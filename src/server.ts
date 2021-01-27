@@ -1,11 +1,10 @@
-import express from 'express';
+import express, { json } from 'express';
 import routes from './routes';
 
 const app = express();
 
-app.get('/', (request, response) => {
-    return response.json({ mensage : "Hello World teste!"});
-});
+app.use(express.json());
+app.use(routes);
 
 app.listen(3333,() => {
     console.log("🎈 Server port listen 3333!");
